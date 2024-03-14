@@ -39,5 +39,12 @@ terraform validate
 # $env:AWS_SECRET_ACCESS_KEY="YOUR_SECRET_ACCESS_KEY"
 
 # Update the deployment
-terraform plan -out m8.tfplan
-terraform apply m8.tfplan
+terraform plan -out managed_services.tfplan
+terraform apply managed_services.tfplan
+
+# Preview what Terraform would destroy
+# terraform apply -destroy
+
+# Destroy what Terraform has built, so AWS charges hault
+# terraform apply -destroy
+# terraform destroy
