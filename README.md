@@ -11,8 +11,13 @@ terraform validate
 
 # Update the deployment
 
-terraform plan -out managed_services.tfplan
-terraform apply managed_services.tfplan
+terraform plan -out servers.tfplan
+terraform apply servers.tfplan
+
+OR
+
+terraform plan -out serverless.tfplan
+terraform apply serverless.tfplan
 
 # Preview what Terraform would destroy
 
