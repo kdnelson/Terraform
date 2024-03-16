@@ -1,24 +1,12 @@
-##################################################################################
-# PROVIDERS
-##################################################################################
-
 provider "aws" {
   access_key = "ACCESS_KEY"
   secret_key = "SECRET_KEY"
   region     = "us-east-1"
 }
 
-##################################################################################
-# DATA
-##################################################################################
-
 data "aws_ssm_parameter" "amzn2_linux" {
   name = "/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2"
 }
-
-##################################################################################
-# RESOURCES
-##################################################################################
 
 # NETWORKING #
 resource "aws_vpc" "app" {
@@ -54,7 +42,6 @@ resource "aws_route_table_association" "app_subnet1" {
 }
 
 # SECURITY GROUPS #
-# Nginx security group 
 resource "aws_security_group" "nginx_sg" {
   name   = "nginx_sg"
   vpc_id = aws_vpc.app.id
@@ -90,6 +77,4 @@ sudo service nginx start
 sudo rm /usr/share/nginx/html/index.html
 echo '<html><head><title>Taco Team Server</title></head><body style=\"background-color:#1F778D\"><p style=\"text-align: center;\"><span style=\"color:#FFFFFF;\"><span style=\"font-size:28px;\">You did it! Have a &#127790;</span></span></p></body></html>' | sudo tee /usr/share/nginx/html/index.html
 EOF
-
 }
-

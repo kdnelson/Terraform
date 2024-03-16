@@ -1,7 +1,29 @@
+variable "aws_access_key" {
+  type        = string
+  description = "AWS Access Key"
+  sensitive   = true
+}
+
+variable "aws_secret_key" {
+  type        = string
+  description = "AWS Secret Key"
+  sensitive   = true
+}
+
 variable "aws_region" {
   type        = string
   description = "AWS region to use for resources."
-  default     = "us-east-1"
+  default     = "us-west-2"
+}
+
+variable "project" {
+  type        = string
+  description = "Project name for resource tagging"
+}
+
+variable "billing_code" {
+  type        = string
+  description = "Billing code for resource tagging"
 }
 
 variable "enable_dns_hostnames" {
@@ -44,22 +66,6 @@ variable "instance_count" {
   type        = number
   description = "Number of instances to create"
   default     = 2
-}
-
-variable "company" {
-  type        = string
-  description = "Company name for resource tagging"
-  default     = "Globomantics"
-}
-
-variable "project" {
-  type        = string
-  description = "Project name for resource tagging"
-}
-
-variable "billing_code" {
-  type        = string
-  description = "Billing code for resource tagging"
 }
 
 variable "naming_prefix" {
