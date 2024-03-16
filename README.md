@@ -2,6 +2,26 @@
 
 https://registry.terraform.io/
 
+# Prepare config
+
+terraform console
+terraform init
+terraform fmt -recursive
+terraform validate
+
+# Update the deployment
+
+terraform plan -out managed_services.tfplan
+terraform apply managed_services.tfplan
+
+# Preview what Terraform would destroy
+
+terraform apply -destroy
+
+# Destroy what Terraform has built, so AWS charges hault
+
+terraform destroy
+
 # Functions and syntax
 
 min(42,5,16)
@@ -22,24 +42,3 @@ range(var.vpc_public_subnet_count)
 # Loop for expression
 
 [for subnet in range(var.vpc_public_subnet_count): cidrsubnet(var.vpc_cidr_block, 8, subnet)]
-
-# Prepare config
-
-terraform console
-terraform init
-terraform fmt -recursive
-terraform validate
-
-# Update the deployment
-
-terraform plan -out managed_services.tfplan
-terraform apply managed_services.tfplan
-
-# Preview what Terraform would destroy
-
-terraform apply -destroy
-
-# Destroy what Terraform has built, so AWS charges hault
-
-terraform apply -destroy
-terraform destroy
