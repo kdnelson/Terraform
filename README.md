@@ -2,6 +2,10 @@
 
 https://registry.terraform.io/
 
+# PluralSight Help
+
+https://github.com/ned1313/Getting-Started-Terraform
+
 # Prepare config
 
 terraform console
